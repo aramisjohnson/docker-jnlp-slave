@@ -25,4 +25,8 @@ MAINTAINER Nicolas De Loof <nicolas.deloof@gmail.com>
 
 COPY jenkins-slave /usr/local/bin/jenkins-slave
 
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -yy -q --no-install-recommends \
+        docker.io
+
 ENTRYPOINT ["jenkins-slave"]
